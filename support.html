@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>技术支持 - AeroLUT</title>
-  <meta name="description" content="AeroLUT 技术支持，包含权限说明、拍摄排查、LUT 导入导出、性能优化和联系方式。">
+  <meta name="description" content="AeroLUT 技术支持，包含权限检查、拍摄排查、LUT 导入与导出、实时预览性能优化、地标功能说明和反馈邮件模板。">
   <link rel="icon" type="image/png" href="assets/aerolut-app-icon.png">
   <style>
     :root {
@@ -394,34 +394,34 @@
       <div>
         <p class="eyebrow">Support</p>
         <h1>技术支持</h1>
-        <p class="lead">遇到权限、拍摄、LUT 导入、导出或性能问题时，先按场景排查。仍无法解决，请发送设备信息、复现步骤和截图或录屏。</p>
+        <p class="lead">遇到黑屏、无声、保存失败、LUT 导入异常、地标不显示或预览卡顿时，先按场景排查。仍无法解决，请带上设备信息、复现步骤和截图或录屏联系我们。</p>
       </div>
       <div class="contact">
         <strong>联系支持</strong>
-        <span>建议附上设备型号、iOS 版本、App 版本、问题发生入口和可复现步骤。</span>
+        <span>邮件中请附上设备型号、iOS 版本、AeroLUT 版本、问题入口、复现步骤和相关截图或录屏。</span>
         <a href="mailto:aerolut@163.com">aerolut@163.com</a>
       </div>
     </div>
 
     <section class="reveal">
       <h2>快速入口</h2>
-      <p class="section-copy">按问题类型先看对应入口，能更快定位是系统权限、素材访问、性能压力还是 LUT 配置问题。</p>
+      <p class="section-copy">按问题类型进入对应排查项，先确认系统权限和素材访问，再检查拍摄设置、LUT 配置和设备负载。</p>
       <div class="quick-grid">
         <a class="quick-card" href="#permissions">
           <b>权限检查</b>
-          <span>相机、麦克风、照片、定位权限异常时先看这里。</span>
+          <span>相机、麦克风、照片、定位权限异常，从这里开始。</span>
         </a>
         <a class="quick-card" href="#shooting">
           <b>拍摄问题</b>
-          <span>黑屏、无声音、保存失败、实时预览卡顿。</span>
+          <span>黑屏、无声、保存失败、预览卡顿和录制异常。</span>
         </a>
         <a class="quick-card" href="#lut">
           <b>LUT 与素材</b>
-          <span>导入、参考图、效果不一致和导出结果排查。</span>
+          <span>.cube 导入、参考图、效果差异和导出结果排查。</span>
         </a>
         <a class="quick-card" href="#feedback">
           <b>反馈模板</b>
-          <span>发邮件前按模板补齐信息，减少来回确认。</span>
+          <span>按模板补齐关键信息，减少邮件来回确认。</span>
         </a>
       </div>
     </section>
@@ -449,19 +449,19 @@
       <div class="diagnostics">
         <div class="diagnostic">
           <strong>相机与麦克风</strong>
-          <span>前往 iOS“设置”>“隐私与安全性”，确认 AeroLUT 已获得相机与麦克风权限。录像无声时也请检查蓝牙输入设备。</span>
+          <span>前往 iOS“设置”>“隐私与安全性”，确认 AeroLUT 已获得相机与麦克风权限。录像无声时，检查是否连接了异常蓝牙输入设备。</span>
         </div>
         <div class="diagnostic">
           <strong>照片访问</strong>
-          <span>保存失败需要照片写入权限。导入参考图或素材失败时，若使用“有限访问”，请把对应照片加入允许列表。</span>
+          <span>保存失败通常需要照片写入权限。导入参考图或素材失败时，如果使用“有限访问”，请把对应照片加入允许列表。</span>
         </div>
         <div class="diagnostic">
           <strong>定位服务</strong>
-          <span>时光 LUT 和地标提示需要“使用 App 期间允许”。部分地点没有公开地理数据时，可能不会出现提示。</span>
+          <span>时光 LUT 和地标提示需要定位权限为“使用 App 期间允许”。部分地点缺少公开地理数据时，可能不会出现提示。</span>
         </div>
         <div class="diagnostic">
           <strong>网络状态</strong>
-          <span>地标查询需要可用网络。离线时仍可使用相机、LUT 预览、手动控制和本地素材管理。</span>
+          <span>地标查询需要网络。离线时仍可使用相机、实时 LUT、手动控制、取色和本地素材管理。</span>
         </div>
       </div>
     </section>
@@ -471,19 +471,19 @@
       <div class="faq">
         <details>
           <summary>无法打开相机怎么办？</summary>
-          <p>确认相机权限已开启。若权限正常仍黑屏，请重启应用，并确认没有其他应用占用相机。</p>
+          <p>先确认相机权限已开启。若权限正常仍黑屏，请关闭占用相机的其他 App，重启 AeroLUT；仍异常时重启设备再试。</p>
         </details>
         <details>
           <summary>录像没有声音怎么办？</summary>
-          <p>确认麦克风权限已开启。录制时也请确认设备没有连接异常蓝牙音频输入。</p>
+          <p>确认麦克风权限已开启，并检查蓝牙耳机、外接麦克风或系统静音输入。重新插拔外接设备后再录制一次测试片段。</p>
         </details>
         <details>
           <summary>无法保存到相册怎么办？</summary>
-          <p>确认照片写入权限已开启。若空间不足，请清理设备存储后重试。</p>
+          <p>确认照片写入权限已开启，并检查设备剩余存储空间。若只授予有限照片访问，请允许 AeroLUT 写入或保存到可访问位置。</p>
         </details>
         <details>
           <summary>实时预览卡顿怎么办？</summary>
-          <p>关闭其他后台应用，降低部分实时效果强度，避免同时开启高负载 AI 分割、直方图、峰值对焦、视频录制和高分辨率输出。</p>
+          <p>关闭后台高负载 App，降低实时效果强度，避免同时开启 AI 分割、直方图、峰值对焦、伪色监看、高分辨率录制和高强度 LUT。</p>
         </details>
       </div>
     </section>
@@ -493,15 +493,15 @@
       <div class="faq">
         <details>
           <summary>无法导入参考图或素材怎么办？</summary>
-          <p>确认已授予照片读取权限。若使用“有限访问”，请在系统照片权限设置中添加需要导入的照片或视频。</p>
+          <p>确认已授予照片读取权限。使用“有限访问”时，请把需要导入的照片或视频加入允许列表。导入 .cube 时，请确认文件完整且扩展名正确。</p>
         </details>
         <details>
           <summary>时光 LUT 或地标提示不出现怎么办？</summary>
-          <p>确认定位权限为“使用 App 期间允许”。地标功能需要可用网络和附近公开地理数据；部分地点可能没有匹配结果。</p>
+          <p>确认定位权限为“使用 App 期间允许”，并保持网络可用。地标功能依赖附近公开地理数据，室内、偏远地点或无匹配数据区域可能不会显示提示。</p>
         </details>
         <details>
           <summary>LUT 效果和导出结果不一致怎么办？</summary>
-          <p>确认拍摄时使用的 LUT、强度、色彩配置和导出时选择一致。Apple Log 或广色域素材在不同设备显示上可能有轻微差异。</p>
+          <p>确认拍摄与导出使用同一 LUT、强度和色彩配置。Apple Log、广色域素材和不同屏幕色彩管理可能造成轻微显示差异。</p>
         </details>
       </div>
     </section>
@@ -509,7 +509,7 @@
     <section id="feedback" class="reveal">
       <h2>反馈模板</h2>
       <div class="template">
-        <strong>发送邮件时可直接按下面格式填写</strong>
+        <strong>发送邮件时可直接复制下面格式</strong>
         <code>设备型号：
 iOS 版本：
 AeroLUT 版本：

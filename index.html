@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AeroLUT - 创意 LUT 相机</title>
-  <meta name="description" content="AeroLUT 是一款面向创作者的专业 LUT 相机，支持实时 LUT 预览、专业拍摄控制、AI Magic LUT、声音驱动色彩和时光 LUT 体验。">
+  <meta name="description" content="AeroLUT 是面向 iPhone / iPad 创作者的 LUT 相机。拍摄时实时预览 LUT、调节强度、切换方案，支持 .cube 管理、实时取色、AI Magic LUT、专业曝光控制、声音驱动色彩与时光地标。">
   <link rel="icon" type="image/png" href="assets/aerolut-app-icon.png">
   <style>
     :root {
@@ -410,6 +410,8 @@
     .card:nth-child(4) .tag { background: var(--green); }
     .card:nth-child(5) .tag { background: #d4d4d8; }
     .card:nth-child(6) .tag { background: #a78bfa; }
+    .card:nth-child(7) .tag { background: #7dd3fc; }
+    .card:nth-child(8) .tag { background: #f0abfc; }
 
     h3 {
       margin: 0 0 10px;
@@ -548,6 +550,8 @@
 
     .phone-shot:nth-child(2) { --lift: -18px; }
     .phone-shot:nth-child(3) { --lift: 18px; }
+    .phone-shot:nth-child(6) { --lift: -18px; }
+    .phone-shot:nth-child(7) { --lift: 18px; }
 
     .phone-shot:hover {
       box-shadow:
@@ -879,7 +883,9 @@
       .screen-strip { grid-template-columns: 1fr; }
       .phone-shot,
       .phone-shot:nth-child(2),
-      .phone-shot:nth-child(3) {
+      .phone-shot:nth-child(3),
+      .phone-shot:nth-child(6),
+      .phone-shot:nth-child(7) {
         --lift: 0px;
       }
     }
@@ -934,7 +940,7 @@
       <div class="hero-inner">
         <p class="eyebrow">iOS 专业创意 LUT 相机</p>
         <h1>AeroLUT</h1>
-        <p class="lead">实时 LUT 预览、专业曝光控制、AI Magic LUT、声音驱动色彩和时光地标滤镜，一台为移动影像创作者准备的相机。拍摄前定调，录制时监看，导出后继续回看与重做，让手机拍摄更接近完整片场工作流。</p>
+        <p class="lead">AeroLUT 是一款面向 iPhone / iPad 创作者的专业 LUT 相机。它将实时滤镜预览、LUT 管理、专业拍摄控制和灵感色彩工具整合到移动拍摄流程中，帮助你在手机上完成从取景、调色到输出的完整创作。</p>
         <div class="actions">
           <a class="button primary" href="support.html">获取支持</a>
           <a class="button" href="privacy.html">查看隐私政策</a>
@@ -974,100 +980,134 @@
     </section>
 
     <section id="features" class="section">
-      <h2 class="section-title">从拍摄开始完成创作</h2>
-      <p class="section-copy">AeroLUT 把取景、调色、监看、录制、素材回看放在同一条创作链路里。画面不是后期才变好，而是在按下快门前就已经成型。</p>
+      <h2 class="section-title">把调色放进拍摄现场</h2>
+      <p class="section-copy">从实时预览到素材回看，AeroLUT 围绕移动拍摄的每个环节设计。常用色彩操作靠近取景画面，专业参数放进控制层，灵感工具帮助你把现场光线、声音和地点转成可复用色彩。</p>
       <div class="grid">
         <article class="card">
           <div class="tag">01</div>
           <h3>实时 LUT 预览</h3>
-          <p>拍摄前直接查看 LUT 效果，支持主 LUT 与次 LUT 叠加、强度调节和实时画面预览，帮助你在现场判断肤色、天空、高光和阴影走向。</p>
+          <p>在取景器里直接看到 LUT 后的画面。肤色、天空、高光和阴影实时变化，拍摄前就能判断画面是否成立。</p>
         </article>
         <article class="card">
           <div class="tag">02</div>
-          <h3>专业拍摄控制</h3>
-          <p>支持 ISO、快门、白平衡、手动对焦、直方图、斑马纹、峰值对焦和伪色监看，适合需要稳定曝光与一致色彩的创作场景。</p>
+          <h3>LUT 强度与侧边切换</h3>
+          <p>滑动即可调节滤镜浓度，侧边区域可快速切换主 LUT 与辅助 LUT。临场换风格不必退出拍摄界面。</p>
         </article>
         <article class="card">
           <div class="tag">03</div>
-          <h3>AI Magic LUT</h3>
-          <p>从参考图提取色彩气质，生成可继续使用的专属 LUT，适合快速建立个人视觉风格，也适合为同一组素材统一色彩基调。</p>
+          <h3>我的 LUT 管理</h3>
+          <p>导入 .cube 文件，整理收藏、自建分类，管理常用色彩方案。拍摄前把当天需要的 LUT 准备好，现场调用更快。</p>
         </article>
         <article class="card">
           <div class="tag">04</div>
-          <h3>现实取色笔</h3>
-          <p>在实时取景中吸取画面颜色，生成色彩胶囊，用更直觉方式控制画面色调。街头霓虹、夕阳暖光、室内灯色都可以成为调色线索。</p>
+          <h3>专业拍摄控制</h3>
+          <p>ISO、快门、白平衡、手动对焦、直方图、斑马纹、峰值对焦和伪色监看集中在专业层，适合更稳定地控制曝光与色温。</p>
         </article>
         <article class="card">
           <div class="tag">05</div>
-          <h3>声音驱动色彩</h3>
-          <p>环境声音可驱动 LUT 强度、节奏和视觉反馈，让视频画面跟随现场氛围变化，适合音乐现场、派对、舞台和动态 Vlog。</p>
+          <h3>实时取色</h3>
+          <p>从取景画面中吸取颜色，记录 HEX 色值和色彩胶囊。霓虹、夕阳、室内灯光都能变成下一次调色参考。</p>
         </article>
         <article class="card">
           <div class="tag">06</div>
-          <h3>时光 LUT 机</h3>
-          <p>结合日期、城市和地标信息，触发具有地点记忆的滤镜体验。旅行、城市漫游和纪念日拍摄可以获得更有语境的色彩提示。</p>
+          <h3>AI Magic LUT</h3>
+          <p>用参考图生成专属 LUT，快速提炼想要的色彩气质。适合统一一组素材，也适合建立个人视觉风格。</p>
+        </article>
+        <article class="card">
+          <div class="tag">07</div>
+          <h3>声音驱动色彩</h3>
+          <p>让环境声音影响 LUT 强度、节奏和视觉反馈。音乐现场、派对、舞台和 Vlog 可以获得更贴近氛围的动态色彩。</p>
+        </article>
+        <article class="card">
+          <div class="tag">08</div>
+          <h3>时光地标 LUT</h3>
+          <p>结合日期、城市和地标信息触发色彩提示。旅行、城市漫游和纪念日拍摄，多一层地点记忆。</p>
         </article>
       </div>
     </section>
 
     <section id="preview" class="section">
-      <h2 class="section-title">真实拍摄界面，而不是概念图</h2>
+      <h2 class="section-title">界面来自真实应用截图</h2>
       <div class="showcase">
         <div class="showcase-copy">
-          <p>AeroLUT 把 LUT、曝光、色彩、声音反应和时光地标功能放进同一个移动拍摄界面。常用操作靠近取景区域，复杂参数收进专业控制层，方便在现场快速切换。</p>
-          <p>官网展示的画面来自应用截图：实时 LUT、时光 LUT、手动控制和声音驱动色彩都对应实际功能入口。</p>
+          <p>所有预览都来自 AeroLUT 实际界面：实时录制、实时 LUT、声音色彩、实时取色、LUT 重做、时光 LUT、专业控制和 LUT 管理。点击图片可在当前页面查看完整大图。</p>
+          <p>界面按拍摄习惯分层：常用色彩操作留在取景器附近，曝光和焦点进入专业控制层，LUT 管理和灵感工具负责拍前准备与拍后整理。</p>
           <div class="showcase-points">
-            <span>实时取景时即可确认 LUT 后画面，不必等导出后再判断。</span>
-            <span>专业参数和创意效果分层呈现，轻量拍摄和手动控制都能覆盖。</span>
-            <span>地标、声音和参考图生成让色彩选择更贴近当下场景。</span>
+            <span>实时取景中确认 LUT 效果，调整强度，切换主/辅色彩方案。</span>
+            <span>.cube 导入、个人 LUT 库、实时取色和 AI Magic LUT 串起完整色彩准备流程。</span>
+            <span>专业监看、地标触发、声音驱动用于更复杂的现场拍摄。</span>
           </div>
           <div class="interface-map">
             <div>
               <strong>取景层</strong>
-              <span>画面预览、LUT 强度、对焦反馈、曝光辅助和拍摄入口集中在主视野附近。</span>
+              <span>预览画面、快门、焦点、曝光辅助和 LUT 强度集中在主视野附近。</span>
             </div>
             <div>
               <strong>色彩层</strong>
-              <span>内置 LUT、导入 LUT、AI Magic LUT 和取色结果可以快速切换与对比。</span>
+              <span>内置 LUT、导入 LUT、AI Magic LUT、取色结果和侧边切换可以快速对比。</span>
             </div>
             <div>
               <strong>专业层</strong>
-              <span>ISO、快门、白平衡、焦点、分辨率和录制模式用于更稳定的手动拍摄。</span>
+              <span>ISO、快门、白平衡、焦点、分辨率、直方图和伪色帮助控制画面稳定性。</span>
             </div>
             <div>
               <strong>灵感层</strong>
-              <span>时光地标、声音驱动和参考图生成，负责把现场氛围转成可用色彩方案。</span>
+              <span>时光地标、声音驱动和参考图生成，把场景信息转成可继续使用的色彩线索。</span>
             </div>
           </div>
           <div class="capture-states">
-            <span><b>拍摄前</b>预览 LUT、调整曝光、检查对焦和色温。</span>
-            <span><b>拍摄中</b>保留实时监看、音频反馈和关键参数提示。</span>
+            <span><b>拍摄前</b>选 LUT、定强度、检查曝光、焦点和色温。</span>
+            <span><b>拍摄中</b>保留实时监看、声音反馈和关键参数提示。</span>
             <span><b>拍摄后</b>回看素材、重做 LUT、整理个人色彩库。</span>
           </div>
         </div>
         <div class="screen-strip" aria-label="AeroLUT 应用界面截图">
           <figure class="phone-shot">
-            <button class="shot-trigger" type="button" data-full-src="assets/screen-real-time-lut.jpg" data-lightbox="AeroLUT 实时 LUT 预览界面">
-              <img src="assets/screen-real-time-lut.jpg" alt="AeroLUT 实时 LUT 预览界面" loading="lazy" width="425" height="920">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-2.png" data-lightbox="AeroLUT 实时录制 LUT 界面">
+              <img src="assets/screen-2.png" alt="AeroLUT 实时录制 LUT 界面" loading="lazy" width="1320" height="2868">
+              <figcaption>实时录制</figcaption>
+            </button>
+          </figure>
+          <figure class="phone-shot">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-3.png" data-lightbox="AeroLUT 实时 LUT 预览界面">
+              <img src="assets/screen-3.png" alt="AeroLUT 实时 LUT 预览界面" loading="lazy" width="1320" height="2868">
               <figcaption>实时 LUT</figcaption>
             </button>
           </figure>
           <figure class="phone-shot">
-            <button class="shot-trigger" type="button" data-full-src="assets/screen-time-lut.jpg" data-lightbox="AeroLUT 时光 LUT 地标界面">
-              <img src="assets/screen-time-lut.jpg" alt="AeroLUT 时光 LUT 地标界面" loading="lazy" width="425" height="920">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-4.png" data-lightbox="AeroLUT 声音驱动色彩界面">
+              <img src="assets/screen-4.png" alt="AeroLUT 声音驱动色彩界面" loading="lazy" width="1320" height="2868">
+              <figcaption>声音色彩</figcaption>
+            </button>
+          </figure>
+          <figure class="phone-shot">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-5.png" data-lightbox="AeroLUT 实时取色界面">
+              <img src="assets/screen-5.png" alt="AeroLUT 实时取色界面" loading="lazy" width="1320" height="2868">
+              <figcaption>实时取色</figcaption>
+            </button>
+          </figure>
+          <figure class="phone-shot">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-6.png" data-lightbox="AeroLUT LUT 重做界面">
+              <img src="assets/screen-6.png" alt="AeroLUT LUT 重做界面" loading="lazy" width="1320" height="2868">
+              <figcaption>LUT 重做</figcaption>
+            </button>
+          </figure>
+          <figure class="phone-shot">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-7.png" data-lightbox="AeroLUT 时光 LUT 地标界面">
+              <img src="assets/screen-7.png" alt="AeroLUT 时光 LUT 地标界面" loading="lazy" width="1320" height="2868">
               <figcaption>时光 LUT</figcaption>
             </button>
           </figure>
           <figure class="phone-shot">
-            <button class="shot-trigger" type="button" data-full-src="assets/screen-pro-controls.jpg" data-lightbox="AeroLUT 手动专业控制界面">
-              <img src="assets/screen-pro-controls.jpg" alt="AeroLUT 手动专业控制界面" loading="lazy" width="425" height="920">
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-8.png" data-lightbox="AeroLUT 手动专业控制界面">
+              <img src="assets/screen-8.png" alt="AeroLUT 手动专业控制界面" loading="lazy" width="1320" height="2868">
               <figcaption>专业控制</figcaption>
             </button>
           </figure>
           <figure class="phone-shot">
-            <button class="shot-trigger" type="button" data-full-src="assets/screen-audio-reactive.jpg" data-lightbox="AeroLUT 声音驱动色彩界面">
-              <img src="assets/screen-audio-reactive.jpg" alt="AeroLUT 声音驱动色彩界面" loading="lazy" width="425" height="920">
-              <figcaption>声音色彩</figcaption>
+            <button class="shot-trigger" type="button" data-full-src="assets/screen-9.png" data-lightbox="AeroLUT 我的 LUT 管理界面">
+              <img src="assets/screen-9.png" alt="AeroLUT 我的 LUT 管理界面" loading="lazy" width="1320" height="2868">
+              <figcaption>LUT 管理</figcaption>
             </button>
           </figure>
         </div>
@@ -1077,19 +1117,19 @@
     <section id="creator" class="band">
       <div class="section">
         <h2 class="section-title">为移动影像创作者设计</h2>
-        <p class="section-copy">适合短片、旅行、街拍、Vlog、活动记录和风格化照片创作。你可以把它当专业相机，也可以把它当色彩实验室。</p>
+        <p class="section-copy">适合短片、旅行、街拍、Vlog、活动记录和风格化照片。AeroLUT 可以是日常相机，也可以是随身色彩实验台。</p>
         <div class="specs">
           <div class="spec">
             <strong>拍摄格式</strong>
-            <span>照片与视频拍摄，支持 LUT 烘焙输出和素材回看。</span>
+            <span>照片与视频拍摄，支持 LUT 烘焙输出、素材回看和色彩重做。</span>
           </div>
           <div class="spec">
             <strong>设备平台</strong>
-            <span>iPhone 与 iPad，最低系统版本以 App Store 页面为准。</span>
+            <span>iPhone / iPad；最低系统版本以 App Store 页面为准。</span>
           </div>
           <div class="spec">
             <strong>隐私原则</strong>
-            <span>照片、视频和 LUT 主要保存在本机；定位仅用于时光地标功能。</span>
+            <span>照片、视频、LUT 和偏好设置主要保存在本机；定位仅用于时光地标。</span>
           </div>
           <div class="spec">
             <strong>版本</strong>
@@ -1100,24 +1140,24 @@
     </section>
 
     <section class="section">
-      <h2 class="section-title">一条更完整的手机拍摄链路</h2>
-      <p class="section-copy">AeroLUT 不是单独的滤镜列表，而是围绕拍摄现场设计的创作流程。它帮助你在取景、判断、录制、回看和再输出之间少来回切换。</p>
+      <h2 class="section-title">一条完整的手机拍摄链路</h2>
+      <p class="section-copy">AeroLUT 不只是滤镜列表。它把选 LUT、看曝光、拍摄、回看和重做放在同一条流程里，减少在相机、相册和调色工具之间来回切换。</p>
       <div class="workflow">
         <div class="workflow-step">
-          <strong>先决定色彩方向</strong>
-          <span>从内置风格、导入 LUT、参考图生成或实时取色开始，先把画面方向定下来，再进入拍摄。</span>
+          <strong>先定色彩方向</strong>
+          <span>从内置风格、导入 LUT、参考图生成或实时取色开始，先确定画面气质，再进入拍摄。</span>
         </div>
         <div class="workflow-step">
-          <strong>现场完成曝光与监看</strong>
-          <span>直方图、斑马纹、峰值对焦、伪色和手动参数辅助判断，减少拍完才发现过曝、跑焦或色温不一致的问题。</span>
+          <strong>现场判断画面状态</strong>
+          <span>直方图、斑马纹、峰值对焦、伪色和手动参数帮助判断过曝、跑焦和色温偏差。</span>
         </div>
         <div class="workflow-step">
-          <strong>按需要选择输出方式</strong>
-          <span>可以把 LUT 直接烘焙到照片或视频里，也可以保留更灵活的素材，用于后续再调整和重做。</span>
+          <strong>按用途选择输出</strong>
+          <span>需要快速交付时可烘焙 LUT；需要后续精修时保留更灵活的素材和色彩方案。</span>
         </div>
         <div class="workflow-step">
-          <strong>素材回看继续创作</strong>
-          <span>拍摄后的素材可以回看、管理和重新套用色彩方案，把一次拍摄延展成可持续整理的视觉资产。</span>
+          <strong>拍后继续整理</strong>
+          <span>回看素材、重新套用 LUT、整理个人色彩库，让一次拍摄沉淀成可复用资产。</span>
         </div>
       </div>
     </section>
@@ -1125,23 +1165,23 @@
     <section id="scenes" class="band">
       <div class="section">
         <h2 class="section-title">适合这些拍摄场景</h2>
-        <p class="section-copy">从轻量记录到风格化短片，AeroLUT 更适合希望在手机上提前看到成片气质的创作者。</p>
+        <p class="section-copy">从轻量记录到风格化短片，AeroLUT 适合想在手机上提前看到成片气质的创作者。</p>
         <div class="scenario-grid">
           <div class="scenario">
             <strong>街拍与城市漫游</strong>
-            <span>用实时 LUT 判断霓虹、橱窗、阴影和肤色，让扫街画面保持统一调性。</span>
+            <span>实时 LUT 帮你判断霓虹、橱窗、阴影和肤色，扫街素材更容易保持统一调性。</span>
           </div>
           <div class="scenario">
             <strong>旅行与地标记录</strong>
-            <span>结合城市、时间和地标提示，让照片和视频带有更明确的地点记忆。</span>
+            <span>用城市、时间和地标信息补足画面语境，照片和视频更有地点记忆。</span>
           </div>
           <div class="scenario">
             <strong>Vlog 与现场视频</strong>
-            <span>声音驱动色彩、视频录制和实时监看适合记录演出、聚会、运动和日常片段。</span>
+            <span>声音驱动色彩、视频录制和实时监看，适合演出、聚会、运动和日常片段。</span>
           </div>
           <div class="scenario">
             <strong>作品集与风格测试</strong>
-            <span>通过参考图生成 LUT，快速测试系列作品的色彩方向，形成稳定个人视觉语言。</span>
+            <span>用参考图生成 LUT，快速测试系列作品的色彩方向，形成稳定视觉语言。</span>
           </div>
         </div>
       </div>
@@ -1149,13 +1189,13 @@
 
     <section id="details" class="section">
       <h2 class="section-title">专业细节保留给需要的人</h2>
-      <p class="section-copy">界面可以快速上手，但核心能力面向认真拍摄：你可以只使用自动拍摄，也可以进入更细的曝光、焦点和色彩控制。</p>
+      <p class="section-copy">日常拍摄可以自动完成；需要精细控制时，也能进入曝光、焦点、色彩和素材管理层。</p>
       <ul class="detail-list">
-        <li>支持照片与视频创作，拍摄时即可查看 LUT 后的画面表现。</li>
-        <li>支持导入、收藏、预览和管理 LUT，方便维护自己的色彩库。</li>
-        <li>支持白平衡与焦点控制，让不同场景素材更容易保持一致。</li>
-        <li>支持素材回看和 LUT 重做，拍摄后还能继续调整视觉方向。</li>
-        <li>AI Magic LUT、取色和音频反应效果主要面向现场灵感，而不是固定模板。</li>
+        <li>照片和视频拍摄时即可预览 LUT 后效果。</li>
+        <li>导入、收藏、预览和管理 LUT，维护自己的色彩库。</li>
+        <li>白平衡、焦点、直方图、斑马纹、峰值对焦和伪色辅助现场判断。</li>
+        <li>素材回看和 LUT 重做让拍后仍可继续调整方向。</li>
+        <li>AI Magic LUT、实时取色和声音驱动面向现场灵感，不只是固定模板。</li>
         <li>隐私优先：照片、视频、LUT 和偏好设置主要保存在设备本地。</li>
       </ul>
     </section>
@@ -1164,7 +1204,7 @@
       <div class="cta-panel">
         <div>
           <h2>需要帮助或反馈？</h2>
-          <p>如果遇到权限、拍摄、导入、导出或性能问题，请发送设备型号、iOS 版本、App 版本、复现步骤和截图或录屏。</p>
+          <p>遇到权限、拍摄、导入、导出、LUT 效果或性能问题，请发送设备型号、iOS 版本、App 版本、复现步骤，以及截图或录屏。</p>
         </div>
         <a class="button primary" href="mailto:aerolut@163.com">aerolut@163.com</a>
       </div>
