@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>隐私政策 - AeroLUT</title>
   <meta name="description" content="AeroLUT 隐私政策，说明相机、麦克风、相册、定位、本地数据和第三方服务使用方式。">
+  <link rel="icon" type="image/png" href="assets/aerolut-app-icon.png">
   <style>
     :root {
       color-scheme: dark;
@@ -19,10 +20,23 @@
       --green: #34d399;
       --rose: #fb7185;
       --radius: 8px;
+      --surface-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 18px 42px rgba(0,0,0,.2);
+      --surface-shadow-hover:
+        0 0 0 1px rgba(255,255,255,.14),
+        0 24px 54px rgba(0,0,0,.3);
+      --image-outline: 1px solid rgba(255,255,255,.1);
+      --ease-out: cubic-bezier(.2,0,0,1);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
@@ -30,6 +44,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -68,6 +83,7 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
+      min-height: 40px;
     }
 
     .brand-icon {
@@ -76,6 +92,8 @@
       border-radius: 8px;
       display: block;
       box-shadow: 0 8px 18px rgba(0,0,0,.28);
+      outline: var(--image-outline);
+      outline-offset: -1px;
     }
 
     .nav-links {
@@ -83,6 +101,15 @@
       gap: 16px;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      transition-property: color, opacity;
+      transition-duration: .16s;
+      transition-timing-function: ease;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -110,21 +137,24 @@
       font-size: clamp(34px, 6vw, 58px);
       line-height: 1.05;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .updated {
       color: var(--muted);
       margin: 18px 0 0;
+      text-wrap: pretty;
     }
 
     .note {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background:
         linear-gradient(135deg, rgba(34,211,238,.12), rgba(52,211,153,.1)),
         var(--panel);
       padding: 22px;
       color: #e4e4e7;
+      box-shadow: var(--surface-shadow);
+      text-wrap: pretty;
     }
 
     .summary-grid,
@@ -142,11 +172,13 @@
     .permission-card,
     .control-card,
     .flow-card {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 18px;
-      transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .summary-card:hover,
@@ -154,8 +186,8 @@
     .control-card:hover,
     .flow-card:hover {
       background: var(--panel-2);
-      border-color: rgba(255,255,255,.24);
-      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+      box-shadow: var(--surface-shadow-hover);
+      transform: translateY(-2px);
     }
 
     .summary-card b,
@@ -173,6 +205,7 @@
     .flow-card span {
       color: var(--muted);
       font-size: 14px;
+      text-wrap: pretty;
     }
 
     section {
@@ -185,10 +218,14 @@
       font-size: 24px;
       line-height: 1.2;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     p, li { color: #d4d4d8; }
-    p { margin: 0 0 14px; }
+    p {
+      margin: 0 0 14px;
+      text-wrap: pretty;
+    }
     ul { margin: 0; padding-left: 20px; }
 
     .flow {
@@ -211,6 +248,13 @@
     .contact-link {
       color: var(--green);
       font-weight: 800;
+      transition-property: color, opacity;
+      transition-duration: .16s;
+      transition-timing-function: ease;
+    }
+
+    .contact-link:hover {
+      color: #6ee7b7;
     }
 
     footer {
@@ -229,8 +273,30 @@
     }
 
     .reveal {
-      animation: rise .65s ease both;
+      animation: rise .65s var(--ease-out) both;
+      animation-delay: var(--reveal-delay, 0ms);
     }
+
+    .hero.reveal {
+      animation: none;
+    }
+
+    .hero.reveal > * {
+      animation: rise .65s var(--ease-out) both;
+    }
+
+    .hero.reveal > :nth-child(2) {
+      animation-delay: 100ms;
+    }
+
+    main > section.reveal:nth-of-type(1) { --reveal-delay: 160ms; }
+    main > section.reveal:nth-of-type(2) { --reveal-delay: 240ms; }
+    main > section.reveal:nth-of-type(3) { --reveal-delay: 320ms; }
+    main > section.reveal:nth-of-type(4) { --reveal-delay: 400ms; }
+    main > section.reveal:nth-of-type(5) { --reveal-delay: 480ms; }
+    main > section.reveal:nth-of-type(6) { --reveal-delay: 560ms; }
+    main > section.reveal:nth-of-type(7) { --reveal-delay: 640ms; }
+    main > section.reveal:nth-of-type(8) { --reveal-delay: 720ms; }
 
     @keyframes rise {
       from { opacity: 0; transform: translateY(14px); }

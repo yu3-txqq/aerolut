@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AeroLUT - 创意 LUT 相机</title>
   <meta name="description" content="AeroLUT 是一款面向创作者的专业 LUT 相机，支持实时 LUT 预览、专业拍摄控制、AI Magic LUT、声音驱动色彩和时光 LUT 体验。">
+  <link rel="icon" type="image/png" href="assets/aerolut-app-icon.png">
   <style>
     :root {
       color-scheme: dark;
@@ -18,11 +19,24 @@
       --rose: #fb7185;
       --green: #34d399;
       --radius: 8px;
+      --surface-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 18px 42px rgba(0,0,0,.22);
+      --surface-shadow-hover:
+        0 0 0 1px rgba(255,255,255,.14),
+        0 24px 54px rgba(0,0,0,.32);
+      --image-outline: 1px solid rgba(255,255,255,.1);
+      --ease-out: cubic-bezier(.2,0,0,1);
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
@@ -30,6 +44,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+      text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -47,7 +62,9 @@
       border-bottom: 1px solid var(--line);
       background: rgba(5,5,7,.82);
       backdrop-filter: blur(18px);
-      transition: background .2s ease, box-shadow .2s ease;
+      transition-property: background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: ease;
     }
 
     header.is-scrolled {
@@ -71,6 +88,7 @@
       gap: 12px;
       font-weight: 800;
       letter-spacing: 0;
+      min-height: 40px;
     }
 
     .brand-icon {
@@ -80,6 +98,8 @@
       display: block;
       box-shadow: 0 8px 18px rgba(0,0,0,.28);
       animation: iconPulse 4.8s ease-in-out infinite;
+      outline: var(--image-outline);
+      outline-offset: -1px;
     }
 
     .nav-links {
@@ -88,6 +108,15 @@
       gap: 18px;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      transition-property: color, opacity;
+      transition-duration: .16s;
+      transition-timing-function: ease;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -163,6 +192,7 @@
       font-size: clamp(44px, 8vw, 92px);
       line-height: .95;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .lead {
@@ -170,6 +200,7 @@
       margin: 24px 0 0;
       color: #d4d4d8;
       font-size: clamp(17px, 2vw, 22px);
+      text-wrap: pretty;
     }
 
     .actions {
@@ -187,27 +218,38 @@
       padding: 0 18px;
       border-radius: var(--radius);
       font-weight: 750;
-      border: 1px solid var(--line);
+      border: 0;
       background: rgba(255,255,255,.08);
       cursor: pointer;
-      transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, color, box-shadow;
+      transition-duration: .18s;
+      transition-timing-function: var(--ease-out);
     }
 
     .button.primary {
       background: var(--text);
       color: #050507;
-      border-color: var(--text);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.72),
+        0 16px 36px rgba(248,250,252,.14);
     }
 
     .button:hover {
-      border-color: rgba(255,255,255,.34);
       background: rgba(255,255,255,.14);
-      box-shadow: 0 10px 28px rgba(0,0,0,.24);
+      box-shadow: var(--surface-shadow-hover);
+      transform: translateY(-1px);
     }
 
     .button.primary:hover {
       background: #fff;
-      border-color: #fff;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.9),
+        0 20px 42px rgba(248,250,252,.18);
+    }
+
+    .button:active {
+      transform: scale(.96);
     }
 
     .hero-instrument {
@@ -224,11 +266,10 @@
     .tone-stream,
     .audio-bars,
     .focus-frame {
-      border: 1px solid rgba(255,255,255,.16);
       border-radius: var(--radius);
       background: rgba(5,5,7,.34);
       backdrop-filter: blur(12px);
-      box-shadow: 0 18px 42px rgba(0,0,0,.22);
+      box-shadow: var(--surface-shadow);
     }
 
     .tone-stream {
@@ -313,6 +354,7 @@
       font-size: clamp(28px, 4vw, 48px);
       line-height: 1.05;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .section-copy {
@@ -320,6 +362,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 17px;
+      text-wrap: pretty;
     }
 
     .grid {
@@ -330,21 +373,23 @@
     }
 
     .card {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 22px;
       min-height: 210px;
-      transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .card:hover,
     .workflow-step:hover,
     .scenario:hover,
     .detail-list li:hover {
-      border-color: rgba(255,255,255,.24);
       background: #151519;
-      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+      box-shadow: var(--surface-shadow-hover);
+      transform: translateY(-2px);
     }
 
     .card .tag {
@@ -357,6 +402,7 @@
       color: #050507;
       font-weight: 900;
       background: var(--gold);
+      font-variant-numeric: tabular-nums;
     }
 
     .card:nth-child(2) .tag { background: var(--cyan); }
@@ -370,12 +416,14 @@
       font-size: 20px;
       line-height: 1.2;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .card p {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
+      text-wrap: pretty;
     }
 
     .band {
@@ -424,10 +472,10 @@
     }
 
     .interface-map div {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 14px;
+      box-shadow: var(--surface-shadow);
     }
 
     .interface-map strong {
@@ -474,13 +522,16 @@
     .phone-shot {
       position: relative;
       margin: 0;
-      border: 1px solid rgba(255,255,255,.18);
       border-radius: 18px;
       overflow: hidden;
       background: #050507;
-      box-shadow: 0 20px 46px rgba(0,0,0,.34);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.1),
+        0 20px 46px rgba(0,0,0,.34);
       transform: translateY(var(--lift, 0px));
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      transition-property: transform, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .phone-shot button {
@@ -492,22 +543,27 @@
       background: transparent;
       color: inherit;
       cursor: zoom-in;
+      min-height: 44px;
     }
 
     .phone-shot:nth-child(2) { --lift: -18px; }
     .phone-shot:nth-child(3) { --lift: 18px; }
 
     .phone-shot:hover {
-      border-color: rgba(255,255,255,.32);
-      box-shadow: 0 24px 54px rgba(0,0,0,.42);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.18),
+        0 24px 54px rgba(0,0,0,.42);
       transform: translateY(calc(var(--lift, 0px) - 6px));
     }
 
     .phone-shot img {
       display: block;
       width: 100%;
+      height: auto;
       aspect-ratio: 642 / 1389;
       object-fit: cover;
+      outline: var(--image-outline);
+      outline-offset: -1px;
     }
 
     .phone-shot figcaption {
@@ -543,9 +599,10 @@
       max-width: min(92vw, 560px);
       max-height: 88vh;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.2);
       box-shadow: 0 28px 72px rgba(0,0,0,.52);
       object-fit: contain;
+      outline: var(--image-outline);
+      outline-offset: -1px;
     }
 
     .lightbox-close {
@@ -554,17 +611,25 @@
       right: 18px;
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(255,255,255,.22);
       border-radius: var(--radius);
       background: rgba(255,255,255,.1);
       color: #fff;
       font-size: 24px;
       line-height: 1;
       cursor: pointer;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .18s;
+      transition-timing-function: var(--ease-out);
     }
 
     .lightbox-close:hover {
       background: rgba(255,255,255,.16);
+      box-shadow: var(--surface-shadow-hover);
+    }
+
+    .lightbox-close:active {
+      transform: scale(.96);
     }
 
     .specs {
@@ -599,11 +664,13 @@
 
     .workflow-step {
       position: relative;
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 22px 22px 22px 64px;
-      transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .workflow-step::before {
@@ -615,6 +682,7 @@
       color: var(--cyan);
       font-size: 13px;
       font-weight: 900;
+      font-variant-numeric: tabular-nums;
     }
 
     .workflow-step strong {
@@ -636,12 +704,14 @@
     }
 
     .scenario {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 20px;
       min-height: 168px;
-      transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .scenario strong {
@@ -665,13 +735,15 @@
     }
 
     .detail-list li {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       padding: 18px;
       color: #d4d4d8;
       font-size: 15px;
-      transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--surface-shadow);
+      transition-property: transform, background-color, box-shadow;
+      transition-duration: .2s;
+      transition-timing-function: var(--ease-out);
     }
 
     .cta-band {
@@ -696,12 +768,14 @@
       font-size: clamp(26px, 4vw, 42px);
       line-height: 1.05;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .cta-panel p {
       margin: 0;
       color: #d4d4d8;
       max-width: 680px;
+      text-wrap: pretty;
     }
 
     footer {
